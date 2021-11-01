@@ -8,15 +8,14 @@ Search Engine with Rekognition")
 
 # Instructions
 (Tested on Mac OSX)
-* pip install pillow
-* pip install wordcloud
+* pip install -r requirements.txt
 * Create a directory called 'photos' and add some images in it.
 * Run the indexer:
 
    ```
-   $ python2.7 indexer.py
+   $ python3 indexer.py
    ```
-* A new file called web/photo_tags.png is created with the tags of the photos.
+* A new file called web/photo_tags.png is created with the wordcloud of the tags of the photos.
 
 ## License
 

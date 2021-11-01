@@ -68,8 +68,8 @@ def get_labels(f):
         lock.release()
         
 
-    except Exception, e:
-        print e
+    except Exception as e:
+        print(e)
     finally:
         pass #lock.release()
 
@@ -82,7 +82,7 @@ pool.join()
 
 ### Lets save the data ###
 data = pickle.dumps(d_index)
-with open('myphotoindex.dvect', 'w') as f:
+with open('myphotoindex.dvect', 'wb') as f:
     f.write(data)
 
 # Generate Search Index/ TF-IDF Model
@@ -93,13 +93,13 @@ tfidf = transformer.fit_transform(counts)
 
 # TF_IDF Model
 vals = pickle.dumps(tfidf)
-with open('tfidf_model.pkl', 'w') as f:
+with open('tfidf_model.pkl', 'wb') as f:
     f.write(vals)
 
 # Features available 
 features = vec.get_feature_names()
 vals = pickle.dumps(features)
-with open('features.pkl', 'w') as f:
+with open('features.pkl', 'wb') as f:
     f.write(vals)
 
 
@@ -110,8 +110,7 @@ wordcloud = WordCloud()
 
 from operator import itemgetter
 item1 = itemgetter(1)
-frequencies = sorted(label_counts.items(), key=item1, reverse=True)
-wordcloud.generate_from_frequencies(frequencies)
+wordcloud.generate_from_frequencies(label_counts)
 
 # save image
 import matplotlib.pyplot as plt

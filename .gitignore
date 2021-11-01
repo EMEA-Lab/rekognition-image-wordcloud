@@ -1,0 +1,9 @@
+.DS_Store
+.env
+*.pyc
+venv
+features.pkl
+myphotoindex.dvect
+photos
+tfidf_model.pkl
+web/photo_tags.png
